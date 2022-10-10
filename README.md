@@ -49,11 +49,10 @@
 
 @# Step-2 >  In RecyclerDataAdapter.java file 
 
-
-public class RecyclerDataAdapter extends FirebaseRecyclerAdapter<FirebaseResponseModel,RecyclerDataAdapter.itemviewHolder> {
-    public RecyclerDataAdapter( @NonNull FirebaseRecyclerOptions<FirebaseResponseModel>  mylist) {
-        super(mylist);
-    }
+    public class RecyclerDataAdapter extends FirebaseRecyclerAdapter<FirebaseResponseModel,RecyclerDataAdapter.itemviewHolder> {
+        public RecyclerDataAdapter( @NonNull FirebaseRecyclerOptions<FirebaseResponseModel>  mylist) {
+          super(mylist);
+        }
     @NonNull
     @Override
     public itemviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -79,6 +78,6 @@ public class RecyclerDataAdapter extends FirebaseRecyclerAdapter<FirebaseRespons
             password= (TextView) itemView.findViewById(R.id.tv_password);
             contactno= (TextView) itemView.findViewById(R.id.tv_contact_no);
             age= (TextView) itemView.findViewById(R.id.tv_age);
+          }
         }
-    }
-}        
+    }        
