@@ -49,6 +49,7 @@
 
 @# Step-2 >  In RecyclerDataAdapter.java file 
 
+
 public class RecyclerDataAdapter extends FirebaseRecyclerAdapter<FirebaseResponseModel,RecyclerDataAdapter.itemviewHolder> {
     public RecyclerDataAdapter( @NonNull FirebaseRecyclerOptions<FirebaseResponseModel>  mylist) {
         super(mylist);
