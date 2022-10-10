@@ -3,7 +3,8 @@
 @Prerequistes 
 
   a>  connect firebase project to 
-        a-i>>   realtime database
+       
+       a-i>>   realtime database
   
   b> add following dependency
        
@@ -22,26 +23,22 @@
       
       a>> In onCreate()  function 
         mainBinding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         databaseReference = FirebaseDatabase.getInstance().getReference().child("student");
-
         FirebaseRecyclerOptions<FirebaseResponseModel> options =
                 new FirebaseRecyclerOptions.Builder<FirebaseResponseModel>()
                         .setQuery(databaseReference, FirebaseResponseModel.class)
                         .build();
-    
         myadapters = new RecyclerDataAdapter(options);
         mainBinding.recyclerView.setAdapter(myadapters);
    
    b>> Override onstart() and onStop() function outside the onCreate() funtion 
    
-   
+
     @Override
     public void onStart() {
         super.onStart();
         myadapters.startListening();
     }
-
     @Override
     public void onStop() {
         super.onStop();
@@ -53,7 +50,6 @@
 @# Step-2 >  In RecyclerDataAdapter.java file 
 
 public class RecyclerDataAdapter extends FirebaseRecyclerAdapter<FirebaseResponseModel,RecyclerDataAdapter.itemviewHolder> {
-
     public RecyclerDataAdapter( @NonNull FirebaseRecyclerOptions<FirebaseResponseModel>  mylist) {
         super(mylist);
     }
@@ -63,9 +59,6 @@ public class RecyclerDataAdapter extends FirebaseRecyclerAdapter<FirebaseRespons
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_layout, parent,false); //  list_item_layout.xml is single row item layout 
         return new itemviewHolder(view);
     }
-
-
-
     @Override
     protected void onBindViewHolder(@NonNull itemviewHolder holder, int position, @NonNull FirebaseResponseModel model) {
         holder.password.setText(model.getPassword());
@@ -74,7 +67,7 @@ public class RecyclerDataAdapter extends FirebaseRecyclerAdapter<FirebaseRespons
         holder.age.setText(model.getAge());
         Glide.with(holder.user_img.getContext()).load(model.getImgLinks()).into(holder.user_img);
     }
-
+  
     class itemviewHolder extends RecyclerView.ViewHolder{
         private CircleImageView user_img;
         private TextView name,contactno,password,age;
