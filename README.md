@@ -54,7 +54,6 @@
 
 public class RecyclerDataAdapter extends FirebaseRecyclerAdapter<FirebaseResponseModel,RecyclerDataAdapter.itemviewHolder> {
 
-
     public RecyclerDataAdapter( @NonNull FirebaseRecyclerOptions<FirebaseResponseModel>  mylist) {
         super(mylist);
     }
@@ -88,4 +87,4 @@ public class RecyclerDataAdapter extends FirebaseRecyclerAdapter<FirebaseRespons
             age= (TextView) itemView.findViewById(R.id.tv_age);
         }
     }
-        
+}        
